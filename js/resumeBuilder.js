@@ -122,7 +122,7 @@ var projects = {
 
 projects.display = function() {
     if(projects.projects.length > 0) {
-        for(i in projects.projects) {
+        for(var i in projects.projects) {
             $("#projects").append(HTMLprojectStart);
 
             var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title).replace("#", projects.projects[i].url);
@@ -133,7 +133,7 @@ projects.display = function() {
             $(".project-entry:last").append(formattedProjectDates);
             $(".project-entry:last").append(formattedProjectDescription);
 
-            for(img in projects.projects[i].images) {
+            for(var img in projects.projects[i].images) {
                 var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[img]);
                 $(".project-entry:last").append(formattedProjectImage);
             }
@@ -141,7 +141,7 @@ projects.display = function() {
 
         }
     }
-}
+};
 
 projects.display();
 
