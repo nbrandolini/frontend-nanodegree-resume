@@ -109,12 +109,12 @@ work.display();
 var projects = {
     "projects": [{
         "title": "Banner Xtender Implementation",
-        "dates": "2007",
+        "dates": "2006-2007",
         "description": "implementation of application allowing on screen viewing of all invoices and supporting documentation",
         "images": ["images/ada.jpg"]
     }, {
         "title": "Online Portfolio",
-        "dates": "2017",
+        "dates": "2017-2017",
         "description": "project for the Udacity class",
         "images": ["images/wisteria.jpg"]
     }]
@@ -135,11 +135,13 @@ projects.display = function() {
         $(".project-entry:last").append(formattedProjectDates);
         $(".project-entry:last").append(formattedProjectDescription);
 
-        projects.projects[i].images.forEach(function(image) {
-            console.log(image);
-            var formatedImage = HTMLprojectImage.replace(data, image);
-            $(".project-entry:last").append(formatedImage);
-        });
+
+        if (projects.projects[i].images.length > 0) {
+            for (var image=0;image<projects.projects[i].images.length;image++) {
+                var formattedImage = HTMLprojectImage.replace(data, projects.projects[i].images[image]);
+                    $(".project-entry:last").append(formattedImage);
+            }
+        }
     }
 };
 
